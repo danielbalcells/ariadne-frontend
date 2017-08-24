@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" ng-app="myApp" ng-controller="AriadneController">
+  <head>
+    <meta charset="utf-8">
+    <title>Ariadne</title>
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jquery-qtip.css">
+    <script src="js/angular.min.js"></script>
+    <!-- <script src="js/cytoscape.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/cytoscape-qtip.js"></script> -->
+    <script src="js/require.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body>
+
+      <body>
+      <div class="container-fluid outerdiv">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#"><b>Ariadne</b> <span class="span-style">Weave your way to new music</span></a>
+            </div>
+            <div class="input-group search-bar">
+                <input type="text" ng-model="initialRecordingMBID" ng-model-options="{ debounce: 800 }" onclick="select()" class="form-control" placeholder="Enter starting song MBID" autofocus />
+                <span class="input-group-addon bar-style"><i class="glyphicon glyphicon-search"></i></span>
+            </div>
+          </div>
+        </nav>
+
+        <noscript>
+          <div class="nojs">Javascript is either disabled or not supported in your browser. Please enable it or use a Javascript enabled browser.</div>
+        </noscript>
+
+        <div class="animated fadeIn">
+
+
+            <div id="cy">
+            </div>
+
+
+        </div>
+      </div>
+      <div id="ariadne-status" class="footer" ng-model="ariadneStatus">
+          {{ ariadneStatus }}
+      </div>
+    </body>
+  </html>
+  </body>
+</html>
