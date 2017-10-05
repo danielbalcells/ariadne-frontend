@@ -63,7 +63,7 @@ angular.module('myApp', [])
                                     return 0;
                                 }
                                 else{
-                                    return 0.4;
+                                    return 0.7;
                                 }
                             },
                             'text-opacity': function(ele){
@@ -146,15 +146,15 @@ angular.module('myApp', [])
                                     return 1;
                                 }
                                 else{
-                                    return 0.4;
+                                    return 0.3;
                                 }
                             },
                             'width': function(ele){
                                 if(ele.data('thick')){
-                                    return 9;
+                                    return 16;
                                 }
                                 else{
-                                    return 3;
+                                    return 4;
                                 }
                             }
                         }
@@ -327,7 +327,7 @@ angular.module('myApp', [])
 
                 fit: true, // whether to fit the viewport to the graph
                 directed: false, // whether the tree is directed downwards (or edges can point in any direction if false)
-                padding: 30, // padding on fit
+                padding: 60, // padding on fit
                 circle: true, // put depths in concentric circles if true, put depths top down if false
                 spacingFactor: 1.2, // positive spacing factor, larger => more space between nodes (N.B. n/a if causes overlap)
                 boundingBox: undefined, // constrain layout bounds; { x1, y1, x2, y2 } or { x1, y1, w, h }
@@ -389,7 +389,8 @@ angular.module('myApp', [])
                     stop: function(){
                         cy.animate({
                             fit:{
-                                eles: thisKnot.closedNeighborhood()
+                                eles: thisKnot.closedNeighborhood(),
+                                padding: 60
                             }},{
                                 duration: 500
                             }
@@ -542,6 +543,7 @@ angular.module('myApp', [])
                 thisKnot.closedNeighborhood().data('highlighted', true);
                 thisKnot.connectedEdges().data('thick',true);
             });
+
             cy.on('mouseout','node', function(evt){
                 var thisKnot = evt.target;
                 cy.elements().data('highlighted', true);
@@ -567,7 +569,6 @@ angular.module('myApp', [])
                 var thisElem = evt.target;
                 thisElem.remove();
             })
-
 
             $scope.$watch('initialRecordingMBID', function() {
                 //POST input-recording
